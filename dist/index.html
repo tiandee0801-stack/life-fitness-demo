@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#133e37">
+  <title>Life Fitness · AI Coach｜个人实践 Demo</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header">
+    <button class="brand" data-page="home" aria-label="Life Fitness，返回开始页">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M7 5v18h14M13 5v12h8"/></svg></span>
+      <span>Life Fitness<span class="brand-sub">AI COACH · 个人实践 DEMO</span></span>
+    </button>
+    <nav aria-label="主要导航">
+      <button class="nav-button active" data-page="home" aria-current="page">开始</button>
+      <button class="nav-button" data-page="coach">AI Coach</button>
+      <button class="nav-button" data-page="video">视频观察</button>
+      <button class="nav-button" data-page="history">训练记录</button>
+    </nav>
+    <button class="about-button" id="open-about">作品说明 <span aria-hidden="true">↗</span></button>
+  </header>
+
+  <main id="main">
+    <section class="page" id="page-home" aria-labelledby="home-title">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="tiny-dot"></span> FOR YOUR NEXT SMALL STEP</p>
+          <h1 id="home-title">让下一次训练，<br>更有<span class="serif-word">头绪。</span></h1>
+          <p class="hero-description">从你的目标和条件出发，和 AI Coach 理清一次居家训练。用视频观察动作，再用真实感受留下反馈。</p>
+          <div class="hero-actions">
+            <button class="button primary" id="start-session">开始一次训练 <span aria-hidden="true">↗</span></button>
+            <button class="button text-button" id="sample-profile">用示例资料体验 <span aria-hidden="true">→</span></button>
+          </div>
+          <div class="hero-caption"><span class="check-icon" aria-hidden="true">✓</span> 资料保存在本机 <span class="caption-divider"></span> 先完成一次，再慢慢进步</div>
+        </div>
+        <div class="hero-art" aria-label="弯举动作概念插画，并非动作识别结果" role="img">
+          <span class="art-topline">ONE SESSION AT A TIME</span>
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <svg class="athlete" viewBox="0 0 430 420" aria-hidden="true">
+            <defs><linearGradient id="shirt" x1="0" x2="1"><stop stop-color="#ce7354"/><stop offset="1" stop-color="#efaa85"/></linearGradient><linearGradient id="pants" x1="0" x2="1"><stop stop-color="#174f45"/><stop offset="1" stop-color="#27675a"/></linearGradient></defs>
+            <ellipse cx="219" cy="390" rx="105" ry="12" fill="#203e31" opacity=".1"/>
+            <path d="M175 227 L226 230 L225 307 L208 373 L181 373 L192 304 Z" fill="url(#pants)"/>
+            <path d="M225 230 L266 223 L271 300 L293 368 L267 376 L239 311 Z" fill="#194f45"/>
+            <path d="M181 366 L208 367 L207 386 L164 387 Q159 378 181 366" fill="#faf6ea" stroke="#1c3d34" stroke-width="2"/>
+            <path d="M268 368 L291 364 L310 383 Q303 390 266 386 Z" fill="#faf6ea" stroke="#1c3d34" stroke-width="2"/>
+            <path d="M204 109 L232 108 L241 131 L211 148 L195 132 Z" fill="#e0aa82"/>
+            <ellipse cx="216" cy="85" rx="28" ry="35" fill="#e9b88f"/>
+            <path d="M189 87 Q178 50 210 45 Q245 42 248 74 L236 74 L229 61 Q207 77 190 71 Z" fill="#183c34"/>
+            <path d="M201 123 Q180 119 166 145 L158 196 L177 211 L173 236 Q215 248 271 232 L260 154 Q255 130 236 123 L221 142 Z" fill="url(#shirt)"/>
+            <path d="M167 145 Q152 144 145 165 L125 220 Q126 239 142 240 L184 226 L180 207 L147 216 L171 168 Z" fill="#e9b88f"/>
+            <path d="M255 142 Q268 144 273 162 L284 213 Q282 232 267 232 L248 222 L235 180 L252 173 L267 208 L258 167 Z" fill="#e9b88f"/>
+            <path d="M238 182 L230 168 Q224 160 231 155 Q242 151 249 165 L253 176 Z" fill="#e9b88f"/>
+            <g transform="translate(222 146) rotate(-17)"><rect x="0" y="13" width="42" height="8" rx="3" fill="#244f43"/><rect x="-4" y="0" width="12" height="34" rx="4" fill="#133e37"/><rect x="34" y="0" width="12" height="34" rx="4" fill="#133e37"/></g>
+            <path d="M179 207 L190 201 Q203 199 206 208 Q202 220 185 224 Z" fill="#e9b88f"/>
+            <path d="M278 150 Q321 181 298 232" fill="none" stroke="#faf6e9" stroke-width="2" stroke-dasharray="5 7" opacity=".8"/>
+            <path d="M297 225 L298 234 L307 230" fill="none" stroke="#faf6e9" stroke-width="2"/>
+            <g fill="#f9f2d5" stroke="#7c9a77" stroke-width="2"><circle cx="259" cy="151" r="5"/><circle cx="273" cy="216" r="5"/><circle cx="240" cy="169" r="5"/></g>
+            <path d="M259 151 L273 216 L240 169" fill="none" stroke="#fcf0cf" stroke-width="2" opacity=".7"/>
+          </svg>
+          <div class="art-label"><span class="tiny-dot"></span> 观察动作 · 记录感受</div>
+          <div class="art-note"><span>01 / YOUR PACE</span><strong>一点点，找到节奏。</strong></div>
+          <span class="art-disclaimer">动作概念插画</span>
+        </div>
+      </div>
+      <div class="journey-strip" aria-label="体验流程">
+        <div><span class="step-number">01</span><span><strong>认识你的起点</strong><small>目标、经验与器械</small></span></div>
+        <span class="journey-arrow" aria-hidden="true">→</span>
+        <div><span class="step-number">02</span><span><strong>把动作看清楚</strong><small>弯举视频与次数观察</small></span></div>
+        <span class="journey-arrow" aria-hidden="true">→</span>
+        <div><span class="step-number">03</span><span><strong>留下一次反馈</strong><small>感受、记录与下一步</small></span></div>
+      </div>
+      <div class="home-bottom"><p>本版聚焦<strong>普通居家健身</strong>。训练建议结合你的输入，视频结果保留可观察范围。</p><button class="inline-link" data-page="history">查看我的记录 <span aria-hidden="true">↗</span></button></div>
+    </section>
+
+    <section class="page" id="page-coach" hidden aria-labelledby="coach-title">
+      <div class="page-heading"><div><p class="eyebrow">01 / START WITH YOU</p><h1 id="coach-title">先说说，你的起点。</h1><p>补充训练条件，让这次对话更有针对性。</p></div><div class="status-pill" id="coach-health"><span class="tiny-dot"></span> 正在连接本机服务</div></div>
+      <div class="notice" id="sample-notice" hidden>已填入示例资料。保存后会实际请求本地 AI；视频识别需要你另行提交视频。</div>
+      <div class="coach-grid">
+        <form class="card profile-card" id="profile-form">
+          <div class="card-heading"><h2>这次的训练条件</h2><span class="small-tag" id="profile-state">待填写</span></div>
+          <fieldset><legend>你最想先解决什么？</legend><div class="choice-grid goal-choices">
+            <label class="choice"><input type="radio" name="goal" value="habit" checked><span><strong>建立习惯</strong><small>把训练放进生活</small></span></label>
+            <label class="choice"><input type="radio" name="goal" value="strength"><span><strong>基础力量</strong><small>开始基础力量训练</small></span></label>
+            <label class="choice"><input type="radio" name="goal" value="learn"><span><strong>了解动作</strong><small>先学会观察与记录</small></span></label>
+          </div></fieldset>
+          <div class="form-row"><label>训练经验<select name="experience"><option value="beginner">刚开始 / 不太规律</option><option value="regular">有规律训练经验</option></select></label><label>可用器械<select name="equipment"><option value="dumbbell">哑铃</option><option value="none">暂时没有器械</option></select></label></div>
+          <fieldset><legend>这次有多少时间？</legend><div class="time-choices"><label class="pill-choice"><input type="radio" name="minutes" value="10"><span>10 分钟</span></label><label class="pill-choice"><input type="radio" name="minutes" value="15" checked><span>15 分钟</span></label><label class="pill-choice"><input type="radio" name="minutes" value="20"><span>20 分钟</span></label><label class="pill-choice"><input type="radio" name="minutes" value="30"><span>30 分钟</span></label></div></fieldset>
+          <label class="field-label">当前有没有影响训练的不适或限制？<select name="limitations"><option value="none">目前没有</option><option value="needs_review">有，需要先确认是否适合训练</option></select></label>
+          <label class="field-label">还想让 Coach 了解什么？<span class="optional">选填</span><textarea name="note" maxlength="400" rows="2" placeholder="例如：主要想在家建立规律，之前不太会记录动作。"></textarea></label>
+          <button class="button primary full-width" type="submit" id="save-profile">保存条件，开始对话 <span aria-hidden="true">→</span></button>
+          <p class="field-hint" id="profile-message" aria-live="polite">你可以随时修改，新的对话会使用已保存的条件。</p>
+        </form>
+        <div class="coach-conversation card">
+          <div class="conversation-heading"><div class="coach-avatar" aria-hidden="true">LF<span>✦</span></div><div><h2>你的 AI Coach</h2><p>从一个小问题，开始一次训练</p></div><span class="small-tag">本地对话</span></div>
+          <div class="messages" id="messages" role="log" aria-live="polite" aria-label="与 AI Coach 的对话"><div class="conversation-empty"><span class="empty-star" aria-hidden="true">✦</span><h3>我们先把这次训练理清楚。</h3><p>保存左侧的条件，再问问如何开始。你也可以询问动作观察、记录方式与视频拍摄。</p></div></div>
+          <div class="prompt-chips" aria-label="建议提问"><button type="button" data-prompt="请结合我已保存的条件，帮我开始一次居家训练，并说明如何进行弯举动作观察。">帮我开始一次训练</button><button type="button" data-prompt="弯举视频怎么拍，才能让动作观察更清楚？">视频应该怎么拍？</button><button type="button" data-prompt="视频计数能告诉我什么，又有哪些事情不能判断？">计数能说明什么？</button></div>
+          <form class="chat-form" id="chat-form"><label class="sr-only" for="chat-input">给 Coach 发消息</label><textarea id="chat-input" maxlength="600" rows="2" placeholder="说说你想解决的问题…" required></textarea><button class="send-button" type="submit" id="send-message" aria-label="发送消息">↑</button></form>
+          <p class="conversation-footnote" id="chat-status" aria-live="polite">回答附资料来源；识别不到或超出范围时会说明。</p>
+        </div>
+      </div>
+      <div class="task-card" id="task-card" hidden><div class="task-icon" aria-hidden="true">↗</div><div class="task-copy"><p class="eyebrow">YOUR NEXT STEP</p><h2 id="task-title">弯举动作观察</h2><div id="task-instructions"></div><details><summary>查看拍摄提示</summary><ul id="task-capture"></ul></details></div><button class="button primary" data-page="video">进入视频观察 <span aria-hidden="true">→</span></button></div>
+    </section>
+
+    <section class="page" id="page-video" hidden aria-labelledby="video-title">
+      <div class="page-heading"><div><p class="eyebrow">02 / OBSERVE YOUR MOVEMENT</p><h1 id="video-title">把一次弯举，看清楚。</h1><p>上传短视频，查看可见动作周期与关键点。不以次数判断动作质量。</p></div><button class="button secondary compact" data-page="coach">返回 Coach</button></div>
+      <div class="video-grid">
+        <div class="video-main">
+          <div class="video-card card">
+            <div class="card-heading"><h2>动作视频</h2><label class="toggle-label"><input type="checkbox" id="overlay-toggle" checked> 显示关键点</label></div>
+            <div class="video-stage" id="video-stage">
+              <div class="video-placeholder" id="video-placeholder"><svg viewBox="0 0 90 90" width="90" height="90" aria-hidden="true"><circle cx="45" cy="45" r="42" fill="none" stroke="currentColor" opacity=".22"/><path d="M37 29 L60 45 L37 61 Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 21 V12 H21 M69 12 H78 V21 M78 69 V78 H69 M21 78 H12 V69" fill="none" stroke="currentColor" stroke-width="2"/></svg><h3>先放入一段你的动作视频</h3><p>单人、固定机位，让肩、肘和手腕保持清晰可见。</p><span>MP4 / MOV / WebM · 最长 45 秒 · 最大 60 MiB</span></div>
+              <video id="motion-video" controls playsinline hidden preload="metadata"></video><canvas id="pose-canvas" aria-hidden="true" hidden></canvas>
+              <div class="video-caption" id="video-caption" hidden><span id="frame-label">等待分析</span></div>
+            </div>
+            <div class="upload-row"><label class="button secondary upload-button" for="video-file"><span aria-hidden="true">＋</span> 选择视频<input type="file" id="video-file" accept="video/*,.mov,.mp4,.webm" class="sr-only"></label><span class="file-name" id="file-name">视频留在本机处理</span></div>
+            <div class="video-options"><label>观察哪一侧手臂？<select id="analysis-side"><option value="left">身体左侧</option><option value="right">身体右侧</option></select></label><p>按本人身体左右选择，与画面左右不同。</p><button class="button primary" id="analyze-video" disabled>分析这段视频 <span aria-hidden="true">↗</span></button></div>
+            <div class="analysis-progress" id="analysis-progress" hidden><div><span id="progress-label">正在提交视频…</span><strong id="progress-number">0%</strong></div><progress id="progress-bar" max="100" value="0">0%</progress><p>本地处理可能需要一些时间，可以先整理练后感受。</p></div>
+            <p class="inline-error" id="video-error" role="alert" hidden></p>
+          </div>
+          <div class="observation-results card" id="observation-results" hidden><div class="card-heading"><h2>本次观察</h2><span id="quality-badge" class="small-tag">等待结果</span></div><div class="result-metrics"><div class="primary-metric"><span id="result-count">—</span><small>可观察的完整次数</small></div><div><strong id="result-duration">—</strong><small>视频时长</small></div><div><strong id="result-valid">—</strong><small>有效观察帧占比</small></div></div><p id="result-summary"></p><div class="result-frame-detail" id="frame-detail">播放视频可查看对应时刻的关键点。</div><details class="result-limitations"><summary>如何理解这份结果</summary><ul id="result-limitations"></ul><p>次数统计完成的伸展—屈曲—伸展周期；它不代表动作标准、肌力或康复状态。</p></details></div>
+        </div>
+        <aside class="video-sidebar">
+          <div class="capture-card"><span class="eyebrow">A CLEAR VIEW HELPS</span><h2>给动作留一点空间。</h2><ol><li><span>01</span><div><strong>镜头保持稳定</strong><p>一次仅拍一人，让肩、肘、手腕同时入镜。</p></div></li><li><span>02</span><div><strong>目标手臂不遮挡</strong><p>选择能清楚看见手臂屈伸的机位，光线均匀。</p></div></li><li><span>03</span><div><strong>保留动作起止</strong><p>记录完整来回过程，拍摄与训练以自身适合的状态为前提。</p></div></li></ol><div class="capture-note">画面不清楚时会保留“无法可靠计数”，不会用估计次数填补。</div></div>
+          <form class="feedback-card card" id="feedback-form"><div class="card-heading"><h2>训练后，感觉怎么样？</h2><span class="small-tag">自主记录</span></div><p class="card-description">无论是否上传视频，都可以留下一次反馈。</p><label class="field-label">本次完成情况<select name="completion"><option value="completed">已完成计划中的训练</option><option value="partial">完成了一部分</option><option value="not_started">尚未开始训练</option></select></label><label class="field-label" for="effort">主观用力程度 <output id="effort-value" for="effort">5 / 10</output></label><input id="effort" name="perceivedEffort" type="range" min="1" max="10" value="5"><div class="range-labels"><span>很轻松</span><span>极费力</span></div><fieldset><legend>有没有出现不适？</legend><div class="time-choices"><label class="pill-choice"><input type="radio" name="discomfort" value="none" checked><span>没有</span></label><label class="pill-choice"><input type="radio" name="discomfort" value="yes"><span>有，需关注</span></label></div></fieldset><label class="field-label">补充感受<span class="optional">选填</span><textarea name="note" rows="3" maxlength="500" placeholder="例如：最后几次感觉费力，下次想继续观察节奏。"></textarea></label><p class="feedback-context" id="feedback-context">尚未关联视频结果，记录会标明未测量次数。</p><button class="button primary full-width" id="save-feedback" type="submit">保存这次记录 <span aria-hidden="true">✓</span></button><p id="feedback-message" class="field-hint" aria-live="polite"></p></form>
+        </aside>
+      </div>
+    </section>
+
+    <section class="page" id="page-history" hidden aria-labelledby="history-title"><div class="page-heading"><div><p class="eyebrow">03 / YOUR TRAINING JOURNAL</p><h1 id="history-title">每一次，都值得记录。</h1><p>留下真实感受，给下一次训练一些参考。</p></div><div class="heading-actions"><a class="button secondary compact" href="/api/export" download>导出我的记录 <span aria-hidden="true">↓</span></a><button class="button primary compact" data-page="coach">回到 Coach <span aria-hidden="true">↗</span></button></div></div><div class="history-summary"><span id="history-count">0</span> 条本机训练记录 <small>仅展示你保存的内容</small></div><div id="history-list" class="history-list"></div><div class="history-footer"><p>导出 JSON 包含档案、对话、训练反馈与分析结果，不含视频文件。清空前请保留自己的原始视频。</p><button class="inline-link danger-link" id="clear-data">清空本 Demo 的数据</button></div></section>
+  </main>
+  <footer class="site-footer"><span>Life Fitness · AI Coach</span><span>个人实践 Demo <span class="footer-dot">·</span> 小步开始，真实记录。</span><button id="footer-about">关于这个作品 ↗</button></footer>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <dialog id="about-dialog" aria-labelledby="about-title"><div class="dialog-header"><p class="eyebrow">ABOUT THIS PRACTICE</p><button class="close-button" id="close-about" aria-label="关闭作品说明">×</button></div><h2 id="about-title">一个从想法走向验证的作品。</h2><p>这是 2026 年 10 月新制作的个人实践 Demo，用于展示产品设计、AI 能力整合与验证过程；不代表新浪或任何既有品牌的正式产品。</p><div class="about-section"><h3>本版可以体验</h3><p>保存居家训练条件、与本地 AI Coach 对话、提交弯举视频进行关键点与次数观察、保存练后反馈并导出本机记录。</p></div><div class="about-section"><h3>实际接入与借鉴</h3><p>动作识别使用 RTMPose 模型；计数逻辑参考 Good-GYM 的状态转换思路并单独适配。OpenPose、EasyMocap、QuickPose 已评估，本版未接入。Coach 使用本地模型与精选资料，不宣称做过 SFT、模型微调或临床验证。</p></div><div class="about-section"><h3>结果如何看待</h3><p>示例资料仅帮助体验输入流程。模型答复、视频结果和失败状态按实际执行展示。尚未开展真实用户交付；没有使用历史留存、商业收入或康复效果数据。</p></div><div class="about-section"><h3>本机数据</h3><p>本版为单机、单人使用，不提供账号隔离。资料、对话、上传视频与反馈保存在本机，可在训练记录页导出记录或清空数据。导出的 JSON 不含视频文件，清空前请保留自己的原始视频。</p></div><button class="button primary full-width" id="about-done">明白，继续体验</button></dialog>
+  <script src="/app.js" defer></script>
+</body>
+</html>

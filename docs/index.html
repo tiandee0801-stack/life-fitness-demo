@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Life Fitness 居家健身产品 Demo：AI Coach、弯举视频观察与训练记录。">
+  <title>Life Fitness · 居家运动助手</title>
+  <link rel="stylesheet" href="mobile.css">
+  <link rel="stylesheet" href="showcase.css"><script src="showcase.js" defer></script><script src="mobile.js" defer></script>
+</head>
+<body>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-run" viewBox="0 0 24 24"><circle cx="15" cy="4" r="2.2" fill="currentColor" stroke="none"/><path d="m12 8 3 3 4 1M12 8l-4 2-1 5m5-7-2 7 4 3-2 4m-2-7-4 5H3"/></symbol>
+    <symbol id="i-bars" viewBox="0 0 24 24"><rect x="2" y="12" width="5" height="10" rx="1.7" fill="currentColor" stroke="none"/><rect x="9.5" y="7" width="5" height="15" rx="1.7" fill="currentColor" stroke="none"/><rect x="17" y="2" width="5" height="20" rx="1.7" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="5.8"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="m9.7 2-.6 3-2 .9-2.7-1.1-2.3 4 2.2 2v2.4l-2.2 2 2.3 4 2.7-1.1 2 .9.6 3h4.6l.6-3 2-.9 2.7 1.1 2.3-4-2.2-2v-2.4l2.2-2-2.3-4-2.7 1.1-2-.9-.6-3z" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="3.4" fill="#171717" stroke="none"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20.5 11.2c0 4.7-3.4 7.3-8.4 7.3H8L3.5 21v-6.2A8 8 0 0 1 3 11.2C3 6.5 6.4 3 11.9 3s8.6 3.5 8.6 8.2Z"/><path d="M8 10.5h8M8 14h4"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M8 6 9.4 3h5.2L16 6h3a2 2 0 0 1 2 2v11H3V8a2 2 0 0 1 2-2z"/><circle cx="12" cy="12.5" r="3.5"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 10h18m-13 4h1m3 0h1m3 0h1m-9 4h1m3 0h1"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-scan" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m13-5h3a2 2 0 0 1 2 2v3M3 16v3a2 2 0 0 0 2 2h3m8 0h3a2 2 0 0 0 2-2v-3M7 12h10"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="12" rx="3"/><path d="M8 10V6a4 4 0 0 1 8 0v4m-4 5v3"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10h.01"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-curl" viewBox="0 0 24 24"><circle cx="11" cy="4" r="2" fill="currentColor" stroke="none"/><path d="m9 22 1-9-2-4m2 4h4l1 9M8 9l-3 5-2-4m5-1h6l3 5 4-5M1 9l4-1m14 0 4 2"/></symbol>
+  </svg>
+
+  <div class="showcase-banner">交互展示版 · 示例动画与预设讲解，未连接 AI 模型</div><div class="app-shell">
+    <header class="app-header">
+      <a class="wordmark" href="./" aria-label="Life Fitness 首页">Life<span>FITNESS</span></a>
+      <span class="header-caption">HOME FITNESS</span>
+    </header>
+
+    <main>
+      <section class="app-view train-view" id="view-train" aria-label="训练">
+        <div class="training-toolbar">
+          <div class="exercise-picker"><svg class="icon"><use href="#i-curl"/></svg><span>弯举</span><label class="sr-only" for="side-select">观察身体哪一侧</label><select id="side-select" aria-label="观察身体哪一侧"><option value="left">左侧</option><option value="right">右侧</option></select></div>
+          <div class="toolbar-actions">
+            <button id="upload-open" type="button" class="round-button" aria-label="预览自己的视频" title="导入视频"><svg class="icon"><use href="#i-video"/></svg></button>
+            <button id="coach-open" type="button" class="round-button coach-trigger" aria-label="打开 AI Coach" title="AI Coach"><svg class="icon"><use href="#i-chat"/></svg><span class="ai-dot">AI</span></button>
+          </div>
+          <input id="video-input" type="file" accept="video/*" hidden>
+        </div>
+
+        <div id="video-stage" class="video-stage">
+          <video id="training-video" playsinline controls preload="metadata" aria-label="训练视频回放"></video>
+          <canvas id="pose-canvas" aria-hidden="true"></canvas>
+          <div id="video-placeholder" class="video-placeholder">
+            <div class="stage-grid" aria-hidden="true"></div>
+            <svg class="body-outline" viewBox="0 0 260 390" aria-hidden="true">
+              <ellipse cx="130" cy="356" rx="83" ry="13" fill="#1d211a"/>
+              <g fill="none" stroke="#3d4435" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="130" cy="58" r="23" stroke-width="11"/>
+                <path d="M92 116q38-24 76 0l-9 106h-59z" fill="#191d16" stroke-width="9"/>
+                <path d="m95 119-24 70-25-50m119-20 24 70 25-50M110 223l-8 117m48-117 8 117M101 342H85m73 0h17"/>
+              </g>
+              <g fill="none" stroke="#758148" stroke-width="8" stroke-linecap="round"><path d="m34 128 24 8m144 0 24-8"/></g>
+              <path d="M38 202q-18-28-10-52m194 52q18-28 10-52" fill="none" stroke="#728535" stroke-width="2" stroke-dasharray="4 7" opacity=".5"/>
+            </svg>
+            <div class="placeholder-copy"><strong>选择样例，体验完整流程</strong><span>自己的视频仅预览，不进行 AI 分析</span></div>
+          </div>
+          <div class="stage-topline" aria-hidden="true"><span class="stage-tag">BICEP CURL</span><span class="stage-tag subtle">预设流程展示</span></div>
+          <div class="count-display"><strong id="live-count">—</strong><span id="count-label">示例完整周期</span></div>
+        </div>
+
+        <div class="showcase-actions"><button id="load-example" type="button" class="button primary full-width">播放完整流程样例 <span aria-hidden="true">↗</span></button><p>原创动画样例，用于了解回放、计数与反馈流程。</p></div><div class="record-control" hidden>
+          <span class="record-side-note">交互展示<br><span>视频观察</span></span>
+          <button id="record-toggle" type="button" class="record-button" aria-label="开始录制训练视频" title="开始录制"><svg class="icon"><use href="#i-camera"/></svg><span class="sr-only">开始录制</span></button>
+          <span id="record-time" class="record-timer">00:00<span>最长 00:45</span></span>
+        </div>
+        <p id="video-status" class="video-status" role="status">可预览自己的视频；真实 AI 分析需运行本地版。</p>
+        <progress id="progress-bar" max="100" value="0" aria-label="视频分析进度" hidden></progress>
+        <div class="training-actions"><button id="analyze-video" hidden type="button" class="button primary" disabled><svg class="icon"><use href="#i-scan"/></svg>分析视频</button><button id="feedback-open" type="button" class="button secondary" disabled>记录示例反馈<svg class="icon small"><use href="#i-arrow"/></svg></button></div>
+        <p id="result-summary" class="result-summary">点击“播放完整流程样例”，体验回放与记录。示例不用于评估真实动作。</p>
+        <div class="capture-note"><span class="tiny-lime-dot"></span>首次使用？先在「目标」填写训练档案，再和 AI Coach 聊聊。</div>
+      </section>
+
+      <section class="app-view" id="view-history" aria-labelledby="history-title" hidden>
+        <h1 id="history-title" class="page-title">训练历史</h1>
+        <div class="stats-card">
+          <div class="stat"><span>本月训练</span><div><strong id="month-days">0</strong><small>天</small></div></div>
+          <div class="stat"><span>示例周期</span><div><strong id="month-cycles">—</strong></div></div>
+          <div class="stat"><span>训练记录</span><div><strong id="month-records">0</strong><small>条</small></div></div>
+        </div>
+        <div class="calendar-card olive-card">
+          <div class="calendar-heading"><button id="month-prev" type="button" class="chevron-button" aria-label="上个月"><svg class="icon rotate"><use href="#i-chevron"/></svg></button><h2 id="month-title">训练日历</h2><button id="month-next" type="button" class="chevron-button" aria-label="下个月"><svg class="icon"><use href="#i-chevron"/></svg></button></div>
+          <div id="calendar-grid" class="calendar-grid" aria-label="训练日历"></div>
+          <div class="calendar-legend"><span><i></i>有训练记录</span><span>点选日期，查看当天记录</span></div>
+        </div>
+        <div class="week-card dark-card"><div class="section-heading"><h2>本周进度</h2><svg class="icon lime"><use href="#i-target"/></svg></div><p id="week-progress" class="week-progress">尚未设置每周目标</p><p class="small-copy">以保存训练反馈的日期计入出勤。</p></div>
+        <div class="section-heading history-heading"><h2 id="history-date">训练记录</h2><span class="small-copy">浏览器保存</span></div>
+        <div id="history-list" class="history-list"><div class="empty-state"><svg class="icon"><use href="#i-calendar"/></svg><h3>你的第一条记录，等你开始</h3><p>分析视频并保存训练感受后，会出现在这里。</p></div></div>
+      </section>
+
+      <section class="app-view" id="view-goals" aria-label="目标与训练档案" hidden>
+        <div class="weekly-card olive-card">
+          <div class="weekly-header"><div><span class="feature-icon"><svg class="icon"><use href="#i-calendar"/></svg></span><h1>每周目标</h1><p id="goal-week-label">设定适合自己的记录频率</p></div><div class="goal-ring"><span id="goal-ring-text">—</span><small>本周 / 目标</small></div></div>
+          <div id="goal-week-dots" class="week-dots" aria-label="本周出勤"></div>
+          <div id="weekly-goal-options" class="goal-options" aria-label="每周自主目标"><button type="button" data-days="1">1天</button><button type="button" data-days="2">2天</button><button type="button" data-days="3">3天</button><button type="button" data-days="4">4天</button><button type="button" data-days="5">5天</button><button type="button" data-days="6">6天</button><button type="button" data-days="7">7天</button></div>
+          <p class="goal-footnote">由你自主设定的出勤目标，不是训练处方。</p>
+        </div>
+        <div class="section-heading goals-heading"><h2><span class="heading-icon"><svg class="icon"><use href="#i-target"/></svg></span>当前观察动作</h2><span class="small-copy">首版</span></div>
+        <div class="exercise-card dark-card"><div class="exercise-art"><svg class="icon"><use href="#i-curl"/></svg><span>01</span></div><div><h3>肱二头肌弯举</h3><p>完整周期观察 · 练后反馈</p></div><svg class="icon lime"><use href="#i-scan"/></svg></div>
+        <div class="section-heading profile-heading"><h2>训练档案</h2><span class="small-copy">让建议从了解你开始</span></div>
+        <form id="profile-form" class="profile-form dark-card">
+          <label>我更想做到<select name="goal"><option value="habit">建立运动习惯</option><option value="strength">了解力量训练</option><option value="learn">学习动作与训练方法</option></select></label>
+          <div class="form-grid"><label>训练经验<select name="experience"><option value="beginner">刚开始练</option><option value="regular">有规律训练</option></select></label><label>可用器械<select name="equipment"><option value="none">暂无器械</option><option value="dumbbell">哑铃</option></select></label></div>
+          <div class="form-grid"><label>每次空闲时间<select name="minutes"><option value="10">10 分钟</option><option value="15">15 分钟</option><option value="20">20 分钟</option><option value="30">30 分钟</option></select></label><label>是否需要先确认身体状况<select name="limitations"><option value="none">暂无已知限制</option><option value="needs_review">有不适或待确认情况</option></select></label></div>
+          <label>想补充的情况 <span class="optional">选填</span><textarea name="note" maxlength="400" rows="3" placeholder="例如：家里空间有限，想先学会一个动作。"></textarea></label>
+          <button id="profile-save" type="submit" class="button primary full-width">保存训练档案<svg class="icon small"><use href="#i-arrow"/></svg></button>
+          <p id="profile-status" class="form-status" role="status">保存后，AI Coach 会参考这些信息回答。</p>
+        </form>
+      </section>
+
+      <section class="app-view settings-view" id="view-settings" aria-label="设置" hidden>
+        <div class="identity-card"><div class="identity-row"><div class="app-icon"><svg class="icon"><use href="#i-curl"/></svg></div><div><div class="wordmark">Life<span>FITNESS</span></div><p>居家运动，记录每一步。</p></div></div><div class="identity-badges"><span>个人 Demo</span><span>交互展示</span><span>浏览器数据</span></div></div>
+        <details class="settings-group"><summary><span class="setting-icon green"><svg class="icon"><use href="#i-run"/></svg></span><span><strong>训练</strong><small>单动作观察与训练记录</small></span><svg class="icon disclosure"><use href="#i-chevron"/></svg></summary><div class="settings-content"><p>展示肱二头肌弯举的产品流程。先填写训练档案，再向 AI Coach 提问；视频分析结果用于观察完整周期，不评定动作是否标准。</p><button class="button secondary full-width" type="button" data-tab="goals">编辑训练档案</button></div></details>
+        <details class="settings-group"><summary><span class="setting-icon cyan"><svg class="icon"><use href="#i-scan"/></svg></span><span><strong>识别与画面</strong><small>回放骨架、拍摄与计数</small></span><svg class="icon disclosure"><use href="#i-chevron"/></svg></summary><div class="settings-content"><label class="switch-row" for="overlay-toggle"><span>显示回放骨架<small>仅在视频完成分析后显示</small></span><input id="overlay-toggle" type="checkbox" checked><span class="switch-visual" aria-hidden="true"></span></label><p>选择视频中清晰可见的一侧，确保肩、肘、腕完整入镜。线上仅演示预设骨架，自己的视频可预览但不分析。本地版支持最长45秒视频，并拒绝多人或信息不足画面的计数。</p></div></details>
+        <details class="settings-group"><summary><span class="setting-icon mint"><svg class="icon"><use href="#i-lock"/></svg></span><span><strong>隐私与数据</strong><small>无需登录 · 浏览器保存</small></span><svg class="icon disclosure"><use href="#i-chevron"/></svg></summary><div class="settings-content"><p>展示版档案、示例对话与反馈仅保存在当前浏览器；自选视频仅本页预览，不上传。导出不包含视频。</p><button id="export-data" type="button" class="button secondary full-width">导出我的记录<svg class="icon small"><use href="#i-arrow"/></svg></button><button id="clear-data" type="button" class="button danger full-width">清空 此浏览器展示数据</button></div></details>
+        <details class="settings-group"><summary><span class="setting-icon orange"><svg class="icon"><use href="#i-info"/></svg></span><span><strong>关于这个项目</strong><small>产品背景与开源参考</small></span><svg class="icon disclosure"><use href="#i-chevron"/></svg></summary><div class="settings-content"><p><strong>Life Fitness · 居家健身产品 Demo</strong></p><p>这是2026年制作的独立居家健身产品实践。线上版演示产品流程；完整本地版使用 Qwen 与 RTMPose，代码在 GitHub 仓库中。</p><p>手机端布局与视觉参考 <a href="https://github.com/yo-WASSUP/Good-GYM" target="_blank" rel="noopener noreferrer">Good-GYM</a>，项目代码使用 MIT 许可。这里以 Web 方式重新实现界面，接入 Life Fitness 自有演示流程，非 Good-GYM 官方产品。</p><p>AI Coach 与视频姿态分析为两个独立能力。对话不读取视频结果；计数是当前 Demo 的示例周期，不是动作标准度或医学评估。</p><p class="credits">Good-GYM © 2024 yo-WASSUP · MIT</p><a class="text-link" href="https://github.com/tiandee0801-stack/life-fitness-demo" target="_blank" rel="noopener">查看 GitHub 与本地版说明 ↗</a></div></details>
+        <p class="settings-footer">Life Fitness · HOME FITNESS DEMO<br><span>保持运动，也看见自己的每一步。</span></p>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="主导航">
+      <button type="button" data-tab="train" aria-current="page"><svg class="icon"><use href="#i-run"/></svg><span>训练</span></button>
+      <button type="button" data-tab="history"><svg class="icon"><use href="#i-bars"/></svg><span>历史</span></button>
+      <button type="button" data-tab="goals"><svg class="icon"><use href="#i-target"/></svg><span>目标</span></button>
+      <button type="button" data-tab="settings"><svg class="icon"><use href="#i-settings"/></svg><span>设置</span></button>
+    </nav>
+  </div>
+
+  <dialog id="coach-dialog" class="sheet coach-sheet" aria-labelledby="coach-title">
+    <div class="sheet-handle" aria-hidden="true"></div><header class="sheet-header"><div><p class="eyebrow">YOUR HOME COACH</p><h2 id="coach-title">AI Coach<span class="lime">.</span></h2></div><button id="coach-close" type="button" class="round-button small-round" aria-label="关闭 AI Coach"><svg class="icon"><use href="#i-close"/></svg></button></header>
+    <p class="coach-intro">从你的时间、器械和经验出发，聊聊这次居家训练。</p>
+    <div id="chat-list" class="chat-list" aria-live="polite"><div class="empty-state chat-empty"><span class="coach-orb"><svg class="icon"><use href="#i-chat"/></svg></span><h3>今天，想从哪里开始？</h3><p>例如：“我有 15 分钟和一副哑铃，第一次练弯举应该注意什么？”</p></div></div>
+    <div id="coach-task" class="coach-task" hidden><button id="coach-task-train" type="button" class="button primary full-width">去训练页试一试<svg class="icon small"><use href="#i-arrow"/></svg></button></div>
+    <p id="coach-status" class="coach-status" role="status">线上仅提供预设流程讲解，不调用 AI 模型。</p>
+    <form id="coach-form" class="coach-form"><label class="sr-only" for="coach-message">发给 AI Coach 的问题</label><textarea id="coach-message" maxlength="600" rows="2" placeholder="说说你的训练想法…" required></textarea><button id="coach-send" type="submit" aria-label="发送给 AI Coach"><svg class="icon"><use href="#i-arrow"/></svg></button></form>
+  </dialog>
+
+  <dialog id="feedback-dialog" class="sheet feedback-sheet" aria-labelledby="feedback-title">
+    <div class="sheet-handle" aria-hidden="true"></div><header class="sheet-header"><div><p class="eyebrow">AFTER YOUR SESSION</p><h2 id="feedback-title">记录这次训练</h2></div><button id="feedback-close" type="button" class="round-button small-round" aria-label="关闭训练反馈"><svg class="icon"><use href="#i-close"/></svg></button></header>
+    <p class="sheet-copy">感受和视频一样重要。记录下来，留给下一次参考。</p>
+    <form id="feedback-form" class="feedback-form"><label class="effort-label" for="effort-input">主观费力程度<strong><output id="effort-value">5 / 10</output></strong><input type="range" id="effort-input" aria-label="主观费力程度" name="perceivedEffort" min="1" max="10" value="5" step="1"><span class="range-ends"><span>很轻松</span><span>非常费力</span></span></label><div class="form-grid"><label>完成情况<select name="completion"><option value="completed">已完成</option><option value="partial">部分完成</option><option value="not_started">还未开始</option></select></label><label>是否有不适<select name="discomfort"><option value="none">没有不适</option><option value="yes">有不适</option></select></label></div><label>还有什么想记录的？<span class="optional">选填</span><textarea name="note" maxlength="500" rows="3" placeholder="例如：后半段开始有些吃力。"></textarea></label><button id="feedback-save" type="submit" class="button primary full-width">保存到训练历史<svg class="icon small"><use href="#i-arrow"/></svg></button><p class="form-status">这是个人训练记录，不是临床评估。</p></form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

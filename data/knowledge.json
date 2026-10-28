@@ -1,0 +1,42 @@
+{
+  "version": "2026-10-27.1",
+  "method": "人工编写的中文释义卡；按元数据与关键词选择；不是向量检索、微调或完整医学知识库",
+  "cards": [
+    {
+      "id": "cdc-start",
+      "title": "CDC：从可持续的活动开始",
+      "url": "https://www.cdc.gov/healthy-weight-growth/physical-activity/getting-started.html",
+      "checkedAt": "2026-10-27",
+      "keywords": ["开始", "新手", "小白", "habit", "beginner", "习惯", "坚持"],
+      "text": "起步时选择自己喜欢、适合当前能力的活动，循序渐进。可把活动安排进日常日程；有慢性健康问题时，应向医疗专业人员了解适合自己的活动类型和活动量。",
+      "scope": "普通成年人活动起步的通用信息；不据此判断个人是否适合训练。"
+    },
+    {
+      "id": "cdc-time",
+      "title": "CDC：让活动融入日常时间",
+      "url": "https://www.cdc.gov/healthy-weight-growth/physical-activity/getting-started.html",
+      "checkedAt": "2026-10-27",
+      "keywords": ["时间", "分钟", "忙", "安排", "计划", "今天", "明天", "habit"],
+      "text": "可以在日常生活中预留固定的活动时间，选择自己喜欢的时间和地点。缺少时间时，先记录日常安排，寻找可持续的活动机会。",
+      "scope": "时间安排与习惯设计；用户填写的可用时间不等于系统指定的运动时长。"
+    },
+    {
+      "id": "cdc-track",
+      "title": "CDC：设定目标并记录活动",
+      "url": "https://www.cdc.gov/physical-activity-basics/adding-adults/index.html",
+      "checkedAt": "2026-10-27",
+      "keywords": ["记录", "完成", "反馈", "总结", "结果", "目标", "坚持"],
+      "text": "活动计划可以从目标和适合自己的活动入手；选择喜欢、匹配当前能力的活动有助于坚持。活动日记可以帮助回顾自己实际进行了哪些活动。",
+      "scope": "活动记录；本产品的费力程度、不适与完成情况字段属于产品设计，不是 CDC 的临床量表。"
+    },
+    {
+      "id": "mayo-curl",
+      "title": "Mayo Clinic：哑铃弯举动作要点",
+      "url": "https://www.mayoclinic.org/healthy-lifestyle/fitness/multimedia/biceps-curl/vid-20084675",
+      "checkedAt": "2026-10-27",
+      "keywords": ["弯举", "手腕", "手臂", "肘", "哑铃", "动作", "strength", "learn"],
+      "text": "哑铃弯举通过屈肘抬起前臂，随后缓慢回到起始位置。掌心向上，肘部靠近身体，手腕保持平直；动作平稳可控，避免甩动手臂或肘部。可站立或坐姿进行。",
+      "scope": "一般动作教育。本卡不提供负重、组数、次数或个人训练处方；无器械页面仅用于空手演示观察流程，不宣称增肌效果。"
+    }
+  ]
+}

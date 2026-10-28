@@ -1,0 +1,11 @@
+runtime/
+artifacts/
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+.DS_Store
+local-ai/
+vendor/
+models/
