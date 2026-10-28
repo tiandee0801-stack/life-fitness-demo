@@ -4,3 +4,4 @@
 .training-actions #feedback-open{width:100%;flex:1}.video-stage{max-height:calc(100svh - 470px)}@media(min-width:1000px){.video-stage{max-height:none}}
 .training-actions{grid-template-columns:1fr}
 @media(min-width:1000px){.bottom-nav{display:flex;align-items:stretch}.bottom-nav button{flex:0 0 auto;width:100%;white-space:nowrap}.training-actions{display:flex;align-items:stretch}.bottom-nav button span{white-space:nowrap}.video-status{text-align:left}.train-view{grid-template-rows:auto auto auto auto auto auto auto}}
+@media(min-width:1000px){.bottom-nav{height:auto;min-height:0;max-height:none}}
